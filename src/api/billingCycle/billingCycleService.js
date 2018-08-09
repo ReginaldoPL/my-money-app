@@ -6,7 +6,7 @@ BillingCycle.methods(['get', 'post', 'put', 'delete'])
 /*put por padrão permire violar as regras de validação, 
         pra isso a linha abaixo = runValidators
         new:true exige que devolva o novo registro e não o anterior*/
-BillingCycle.updateOption({new:true, runValidators: true })
+BillingCycle.updateOptions({new:true, runValidators: true })
 
 
 module.exports = BillingCycle

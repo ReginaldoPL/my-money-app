@@ -1,5 +1,6 @@
 /*modelo*/
 const BillingCycle = require('./billingCycle')
+const errorHandeler = require('../commom/errorHandler')
 
 /*definição dos métodos, pode excluir algum se quiser*/
 BillingCycle.methods(['get', 'post', 'put', 'delete'])
@@ -7,6 +8,8 @@ BillingCycle.methods(['get', 'post', 'put', 'delete'])
         pra isso a linha abaixo = runValidators
         new:true exige que devolva o novo registro e não o anterior*/
 BillingCycle.updateOptions({new:true, runValidators: true })
+
+BillingCycle.after('post',errorHandeler).after('put',errorHandeler)
 
 BillingCycle.route('count',(req,res, next)=>{
         BillingCycle.count((error,value) => {
